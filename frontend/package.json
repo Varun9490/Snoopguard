@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
+    "chat-app": "file:..",
     "dompurify": "^3.2.3",
     "hackathon-project": "file:..",
     "lucide-react": "^0.468.0",

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -7,6 +8,22 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
+=======
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
+
+import HomePage from "./pages/HomePage.jsx";
+import SignUpPage from "./pages/SignUpPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import SettingsPage from "./pages/SettingsPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+>>>>>>> 99f1e3282f5b7cac0a3546df3144c05ae9eb3f22
 
 import { useAuthStore } from "./store/useAuthStore";
 import { useThemeStore } from "./store/useThemeStore";
@@ -46,8 +63,10 @@ const App = () => {
   // Render the app with routing logic
   return (
     <div data-theme={theme}>
-      <Navbar />
+      <Router>
+        <Navbar />
 
+<<<<<<< HEAD
       <Routes>
         {/* Home Page */}
         <Route
@@ -79,6 +98,30 @@ const App = () => {
 
       {/* Notification Toast */}
       <Toaster />
+=======
+        <Routes>
+          <Route
+            path="/"
+            element={authUser ? <HomePage /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/signup"
+            element={!authUser ? <SignUpPage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/login"
+            element={!authUser ? <LoginPage /> : <Navigate to="/" />}
+          />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route
+            path="/profile"
+            element={authUser ? <ProfilePage /> : <Navigate to="/login" />}
+          />
+        </Routes>
+
+        <Toaster />
+      </Router>
+>>>>>>> 99f1e3282f5b7cac0a3546df3144c05ae9eb3f22
     </div>
   );
 };
