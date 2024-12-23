@@ -2,19 +2,21 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+
 import path from "path";
+
 import { connectDB } from "./lib/db.js";
+
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import { app, server } from "./lib/socket.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-app.use(express.json({ limit: "50mb" })); // Increase the limit as needed
-app.use(express.urlencoded({ limit: "50mb", extended: true })); // Increase the limit as needed
+app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
@@ -34,13 +36,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-connectDB()
-  .then(() => {
-    server.listen(PORT, () => {
-      console.log("server is running on PORT:" + PORT);
-    });
-  })
-  .catch((error) => {
-    console.error("Failed to connect to the database:", error);
-    process.exit(1);
-  });
+server.listen(PORT, () => {
+  console.log("server is running on PORT:" + PORT);
+  connectDB();
+});
