@@ -1,6 +1,4 @@
 
-
-```markdown
 # MERN Stack Chat Application
 
 This is a real-time chat application built using the MERN stack (MongoDB, Express, React, and Node.js). The application supports user authentication, secure messaging, and image sharing. It is designed to be scalable and efficient with features like JWT-based authentication, Cloudinary integration for image uploads, and WebSocket-based real-time updates.
