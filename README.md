@@ -59,7 +59,7 @@ frontend/
 ### Backend Configuration
 1. Clone the repository and navigate to the backend directory:
    ```bash
-   git clone https://github.com/your-username/chat-app.git
+   git clone https://github.com/Varun9490/Snoopguard.git
    cd chat-app/backend
    ```
 
